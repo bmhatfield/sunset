@@ -9,7 +9,7 @@ import (
 
 /*
 Example Good:
-	curl http://freegeoip.net/json/73.238.152.142
+	curl https://freegeoip.net/json/73.238.152.142
 		{
 			"ip":"73.238.152.142",
 			"country_code":"US",
@@ -25,7 +25,7 @@ Example Good:
 		}
 
 Example Bad:
-	curl http://freegeoip.net/json/
+	curl https://freegeoip.net/json/
 		{
 			"ip":"2601:184:4780:18be:ba27:ebff:fea5:253c",
 			"country_code":"US",
@@ -60,7 +60,7 @@ type FreeGeoIPResponse struct {
 func GetGeo(ipify *IPifyResponse) (*FreeGeoIPResponse, error) {
 	geoip := &FreeGeoIPResponse{}
 
-	resp, err := http.Get(fmt.Sprintf("http://freegeoip.net/json/%s", ipify.IP))
+	resp, err := http.Get(fmt.Sprintf("https://freegeoip.net/json/%s", ipify.IP))
 
 	if err != nil {
 		return geoip, err
