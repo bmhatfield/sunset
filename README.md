@@ -1,8 +1,8 @@
 # Sunset
 
-![Godoc](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square https://godoc.org/github.com/bmhatfield/sunset/sunset)
-
 Retrieve crepscular timings from sunrise-sunset.org
+
+[![Godoc](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square)]( https://godoc.org/github.com/bmhatfield/sunset/sunset)
 
 ## Design
 
