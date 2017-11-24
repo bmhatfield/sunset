@@ -16,9 +16,10 @@ For an explanation of the different times returned, please see [MrReid.org's exp
 
 `sunrise-sunset.go`: Sunrise timings from [sunrise-sunset.org](https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&formatted=0). Times are in UTC and must be converted with `.Local()`.
 
-
 ## Use
 
 Go Get: `go get -u github.com/bmhatfield/sunset`
+
 CLI: `go run print-sunset.go`
+
 API: `sunset.Time()`
