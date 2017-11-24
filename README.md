@@ -11,8 +11,11 @@ For an explanation of the different times returned, please see [MrReid.org's exp
 ## APIs
 
 `freegeoip.go`: GeoIP infromation from [freegeoip.net](https://freegeoip.net/). Works around IPv6 limitations.
+
 `ipify.go`: Your current IPv4 from [ipify.org](https://api.ipify.org?format=json). Used to work around FreeGeoIP's IPv6 issues.
+
 `sunrise-sunset.go`: Sunrise timings from [sunrise-sunset.org](https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&formatted=0). Times are in UTC and must be converted with `.Local()`.
+
 
 ## Use
 
