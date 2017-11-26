@@ -1,5 +1,7 @@
 package sunset
 
+import "time"
+
 // Time performs the coordinated requests to get SunriseSunsetResults
 func Time() (*SunriseSunsetResults, error) {
 	empty := &SunriseSunsetResults{}
@@ -16,7 +18,7 @@ func Time() (*SunriseSunsetResults, error) {
 		return empty, err
 	}
 
-	sunsetTime, err := GetSunset(geo)
+	sunsetTime, err := GetSunset(geo, time.Now())
 
 	return sunsetTime, err
 }

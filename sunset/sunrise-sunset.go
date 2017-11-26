@@ -50,10 +50,17 @@ type SunriseSunsetResponseContainer struct {
 }
 
 // GetSunset returns a response struct
-func GetSunset(geo *FreeGeoIPResponse) (*SunriseSunsetResults, error) {
+func GetSunset(geo *FreeGeoIPResponse, date time.Time) (*SunriseSunsetResults, error) {
 	results := &SunriseSunsetResults{}
 
-	resp, err := http.Get(fmt.Sprintf("https://api.sunrise-sunset.org/json?formatted=0&lat=%f&lng=%f", geo.Latitude, geo.Longitude))
+	if date.IsZero() {
+		date = time.Now()
+	}
+
+	formatString := "https://api.sunrise-sunset.org/json?formatted=0&lat=%f&lng=%f&date=%s"
+	requestURI := fmt.Sprintf(formatString, geo.Latitude, geo.Longitude, date.Format("2006-01-02"))
+
+	resp, err := http.Get(requestURI)
 
 	if err != nil {
 		return results, err
