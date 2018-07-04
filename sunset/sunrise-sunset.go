@@ -8,6 +8,12 @@ import (
 	"time"
 )
 
+// Coordinates represent geographic coordinates
+type Coordinates struct {
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+}
+
 /*
 Example:
 	https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&formatted=0
@@ -50,7 +56,7 @@ type SunriseSunsetResponseContainer struct {
 }
 
 // GetSunset returns a response struct
-func GetSunset(geo *FreeGeoIPResponse, date time.Time) (*SunriseSunsetResults, error) {
+func GetSunset(geo *Coordinates, date time.Time) (*SunriseSunsetResults, error) {
 	results := &SunriseSunsetResults{}
 
 	if date.IsZero() {

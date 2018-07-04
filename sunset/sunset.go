@@ -2,23 +2,26 @@ package sunset
 
 import (
 	"log"
+	"os"
+	"strconv"
 	"time"
 )
 
 // Time performs the coordinated requests to get SunriseSunsetResults
 func Time() (*SunriseSunsetResults, error) {
-	empty := &SunriseSunsetResults{}
-
-	ip, err := GetIP()
-
+	lat, err := strconv.ParseFloat(os.Getenv("LAT"), 64)
 	if err != nil {
-		return empty, err
+		return nil, err
 	}
 
-	geo, err := GetGeo(ip)
-
+	lon, err := strconv.ParseFloat(os.Getenv("LON"), 64)
 	if err != nil {
-		return empty, err
+		return nil, err
+	}
+
+	geo := &Coordinates{
+		Latitude:  lat,
+		Longitude: lon,
 	}
 
 	sunsetTime, err := GetSunset(geo, time.Now())
